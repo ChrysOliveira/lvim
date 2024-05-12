@@ -23,5 +23,16 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
   },
+  {
+    name = "Compile and debug",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      vim.fn.system('clang++ *.cpp -o main')
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  },
 }
 
