@@ -16,10 +16,11 @@ dap.configurations.c = {
     type = "codelldb",
     request = "launch",
     program = function()
+      local directory = vim.fn.expand("%:h")
       local filename = vim.fn.expand("%:r")
-      vim.fn.system('gcc -fdiagnostics-color=always -g *.c -o ' .. filename .. ' -lm')
+      vim.fn.system('gcc -fdiagnostics-color=always -g ' .. directory .. '/*.c -o ' .. filename .. ' -lm')
       -- vim.fn.system('gcc -fdiagnostics-color=always -g *.c -o main -lm')
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input('Path to executable: ', directory .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
