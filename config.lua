@@ -4,6 +4,7 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
 reload "user.lsp.languages.cpp"
+reload "user.lsp.languages.c"
 reload "user.lsp.languages.python"
 
 vim.opt.number = true
@@ -56,13 +57,3 @@ lvim.plugins = {
 }
 
 lvim.colorscheme = "gruvbox"
-
-lvim.builtin.which_key.mappings["sF"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>",
-  "Find File Everywhere" }
-lvim.builtin.which_key.mappings["sT"] = { function()
-  require("telescope.builtin").live_grep {
-    additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
-  }
-end,
-  "Text Everywhere",
-}
