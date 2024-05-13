@@ -9,6 +9,7 @@ reload "user.lsp.languages.python"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.wrap = true
 
 lvim.plugins = {
   {
