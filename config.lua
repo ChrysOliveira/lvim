@@ -54,7 +54,12 @@ lvim.plugins = {
   },
   {
     "mfussenegger/nvim-dap-python"
+  },
+  {
+    "mfussenegger/nvim-jdtls"
   }
 }
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
 lvim.colorscheme = "gruvbox"
